@@ -1,0 +1,627 @@
+/* ===========================================================
+   SCHOOL FOR ALL — Feuille de style principale
+   Palette basée sur la maquette fournie par le client
+   =========================================================== */
+
+:root {
+  --sfa-pink: #EC4899;
+  --sfa-pink-dark: #831843;
+  --sfa-pink-light: #FCE7F3;
+  --sfa-dark: #1F2937;
+  --sfa-grey: #6B7280;
+
+  --bs-primary: var(--sfa-pink);
+  --bs-primary-rgb: 236, 72, 153;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--sfa-dark);
+}
+
+a { color: var(--sfa-pink); }
+a:hover { color: var(--sfa-pink-dark); }
+
+/* ---------- Boutons ---------- */
+.btn-sfa-primary {
+  background-color: var(--sfa-pink);
+  border-color: var(--sfa-pink);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.6rem 1.6rem;
+}
+.btn-sfa-primary:hover {
+  background-color: var(--sfa-pink-dark);
+  border-color: var(--sfa-pink-dark);
+  color: #fff;
+}
+.btn-sfa-outline {
+  border: 2px solid var(--sfa-dark);
+  color: var(--sfa-dark);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.55rem 1.6rem;
+  background: #fff;
+}
+
+/* ---------- Navbar ---------- */
+.sfa-navbar {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.sfa-navbar .nav-link {
+  font-weight: 500;
+  color: var(--sfa-dark);
+}
+.sfa-navbar .nav-link.active {
+  color: var(--sfa-pink);
+}
+
+/* ---------- Hero ---------- */
+.sfa-hero {
+  background: linear-gradient(135deg, var(--sfa-pink-light) 0%, #fff 60%);
+  padding: 4rem 0;
+}
+.sfa-hero h1 {
+  font-weight: 800;
+  font-size: 2.6rem;
+}
+.sfa-hero .badge-pill {
+  background: var(--sfa-pink);
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ---------- Cards ---------- */
+.sfa-card {
+  border: none;
+  border-radius: 16px;
+  background: var(--sfa-pink-light);
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform .2s ease;
+}
+.sfa-card:hover { transform: translateY(-4px); }
+.sfa-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--sfa-pink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Méthode SCHFL ---------- */
+.sfa-methode-step {
+  text-align: center;
+}
+.sfa-methode-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sfa-pink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  font-size: 1.5rem;
+}
+
+/* ---------- Bandeau CTA ---------- */
+.sfa-cta-banner {
+  background: var(--sfa-pink);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+/* ---------- Footer ---------- */
+.sfa-footer {
+  background: var(--sfa-dark);
+  color: #d1d5db;
+  padding: 3rem 0 1.5rem;
+}
+.sfa-footer a { color: #d1d5db; text-decoration: none; }
+.sfa-footer a:hover { color: var(--sfa-pink); }
+.sfa-footer h6 { color: #fff; font-weight: 700; margin-bottom: 1rem; }
+
+/* ---------- Blog / newsletter ---------- */
+.sfa-post-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.sfa-like-btn.active { color: var(--sfa-pink); font-weight: 700; }
+
+/* ---------- Admin dashboard ---------- */
+.sfa-admin-sidebar {
+  background: var(--sfa-dark);
+  min-height: 100vh;
+  color: #fff;
+}
+.sfa-admin-sidebar a {
+  color: #d1d5db;
+  display: block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.sfa-admin-sidebar a:hover,
+.sfa-admin-sidebar a.active {
+  background: var(--sfa-pink);
+  color: #fff;
+}
+.sfa-stat-card {
+  border-radius: 14px;
+  padding: 1.5rem;
+  color: #fff;
+  background: var(--sfa-pink);
+}
+
+/* ===========================================================
+   MISE À JOUR — Thème rose animé (dashboard + animations globales)
+   =========================================================== */
+
+/* ---------- Palette étendue (dégradés inspirés du logo rose) ---------- */
+:root {
+  --sfa-grad-1: linear-gradient(135deg, #F472B6 0%, #C026D3 100%);
+  --sfa-grad-2: linear-gradient(135deg, #FB7185 0%, #EC4899 100%);
+  --sfa-grad-3: linear-gradient(135deg, #E879F9 0%, #831843 100%);
+  --sfa-navy: #150F1E;
+  --sfa-navy-light: #1E1730;
+}
+
+/* ---------- Animations réutilisables (rotation / translation) ---------- */
+@keyframes sfa-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+@keyframes sfa-float-slow {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(14px) translateX(10px) rotate(-8deg); }
+}
+@keyframes sfa-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes sfa-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+@keyframes sfa-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sfa-dash {
+  to { stroke-dashoffset: 0; }
+}
+
+.sfa-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.sfa-shape-1 { animation: sfa-float 7s ease-in-out infinite; }
+.sfa-shape-2 { animation: sfa-float-slow 9s ease-in-out infinite; }
+.sfa-shape-3 { animation: sfa-spin-slow 18s linear infinite; }
+
+.sfa-hero { position: relative; overflow: hidden; }
+.sfa-hero .container { position: relative; z-index: 2; }
+
+/* ---------- Compteurs animés ---------- */
+.sfa-counter { font-variant-numeric: tabular-nums; }
+
+/* ---------- ADMIN : nouveau thème sombre/rose animé ---------- */
+.sfa-admin-sidebar {
+  background: linear-gradient(180deg, var(--sfa-navy) 0%, var(--sfa-navy-light) 100%);
+}
+.sfa-admin-sidebar a { transition: all .2s ease; }
+.sfa-admin-sidebar a:hover,
+.sfa-admin-sidebar a.active {
+  background: var(--sfa-grad-2);
+  box-shadow: 0 4px 14px rgba(236,72,153,.35);
+  transform: translateX(3px);
+}
+body.sfa-admin-body { background: #F3F1F8; }
+
+.sfa-stat-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--sfa-grad-2);
+  box-shadow: 0 10px 25px rgba(236,72,153,.25);
+  transition: transform .25s ease;
+}
+.sfa-stat-card:hover { transform: translateY(-4px); }
+.sfa-stat-card.grad-2 { background: var(--sfa-grad-1); box-shadow: 0 10px 25px rgba(192,38,211,.25); }
+.sfa-stat-card.grad-3 { background: var(--sfa-grad-3); box-shadow: 0 10px 25px rgba(131,24,67,.3); }
+.sfa-stat-card.grad-dark { background: linear-gradient(135deg, #1E1730, #392A54); box-shadow: 0 10px 25px rgba(30,23,48,.3); }
+.sfa-stat-card .sfa-stat-icon {
+  position: absolute; right: 1rem; top: 1rem;
+  width: 42px; height: 42px; border-radius: 12px;
+  background: rgba(255,255,255,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.sfa-stat-card .sfa-stat-value { font-size: 2rem; font-weight: 800; }
+.sfa-stat-card .sfa-stat-label { font-size: .85rem; opacity: .9; }
+.sfa-stat-card .sfa-stat-trend {
+  display: inline-block; margin-top: .4rem; font-size: .75rem;
+  background: rgba(255,255,255,.2); padding: .15rem .6rem; border-radius: 20px;
+}
+
+.sfa-admin-card {
+  border-radius: 18px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(30,23,48,.06);
+}
+.sfa-admin-card .card-title-row {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;
+}
+
+/* ---------- Section Blog façon Facebook ---------- */
+.sfa-fb-post {
+  border-radius: 12px;
+  border: 1px solid #e4e6eb;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
+  margin-bottom: 1.25rem;
+}
+.sfa-fb-header {
+  display: flex; align-items: center; gap: .6rem; padding: .85rem 1rem .4rem;
+}
+.sfa-fb-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--sfa-grad-2);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; flex-shrink: 0;
+}
+.sfa-fb-meta { line-height: 1.15; }
+.sfa-fb-meta .fb-name { font-weight: 700; font-size: .92rem; color: #050505; }
+.sfa-fb-meta .fb-time { font-size: .76rem; color: #65676b; display: flex; align-items: center; gap: .25rem; }
+.sfa-fb-body { padding: 0 1rem .6rem; font-size: .95rem; color: #050505; white-space: pre-line; }
+.sfa-fb-thumb-wrap {
+  width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--sfa-pink-light);
+  display: flex; align-items: center; justify-content: center;
+}
+.sfa-fb-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.sfa-fb-thumb-fallback { font-size: 2.4rem; color: var(--sfa-pink); }
+.sfa-fb-stats {
+  display: flex; justify-content: space-between; padding: .5rem 1rem; font-size: .82rem; color: #65676b;
+}
+.sfa-fb-actions {
+  display: flex; border-top: 1px solid #e4e6eb; margin: 0 1rem;
+}
+.sfa-fb-actions button, .sfa-fb-actions a {
+  flex: 1; border: none; background: none; padding: .55rem 0; color: #65676b;
+  font-weight: 600; font-size: .88rem; display: flex; align-items: center; justify-content: center; gap: .4rem;
+  border-radius: 6px; transition: background .15s ease;
+}
+.sfa-fb-actions button:hover, .sfa-fb-actions a:hover { background: #f2f2f2; color: #050505; text-decoration:none; }
+.sfa-fb-actions button.active { color: var(--sfa-pink); }
+
+/* ---------- Épreuves façon feed avec miniature ---------- */
+.sfa-epreuve-thumb {
+  width: 64px; height: 64px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: .95rem; text-align: center; line-height: 1.1;
+  background: var(--sfa-grad-2);
+}
+
+/* ---------- Écosystème de l'équipe (organigramme) ---------- */
+.sfa-ecosystem { position: relative; padding: 3rem 0; }
+.sfa-eco-leader {
+  width: 130px; height: 130px; border-radius: 50%;
+  background: var(--sfa-grad-3);
+  color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  margin: 0 auto; box-shadow: 0 12px 30px rgba(131,24,67,.35);
+  position: relative; z-index: 2; text-align: center; padding: .5rem;
+  animation: sfa-pulse 4s ease-in-out infinite;
+}
+.sfa-eco-leader .eco-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; margin-bottom: .3rem; }
+.sfa-eco-leader .eco-name { font-size: .78rem; font-weight: 700; }
+.sfa-eco-leader .eco-role { font-size: .65rem; opacity: .85; }
+
+.sfa-eco-branch { position: relative; }
+.sfa-eco-node {
+  background: #fff; border-radius: 16px; padding: 1rem;
+  box-shadow: 0 8px 22px rgba(30,23,48,.08);
+  text-align: center; transition: transform .25s ease, box-shadow .25s ease;
+  position: relative; z-index: 2;
+}
+.sfa-eco-node:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(236,72,153,.25); }
+.sfa-eco-node .eco-photo {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  margin: 0 auto .5rem; border: 3px solid var(--sfa-pink-light);
+}
+.sfa-eco-node .eco-name { font-weight: 700; font-size: .9rem; margin-bottom: 0; }
+.sfa-eco-node .eco-role { font-size: .76rem; color: var(--sfa-pink); font-weight: 600; }
+.sfa-eco-node .eco-matiere { font-size: .74rem; color: var(--sfa-grey); }
+
+.sfa-eco-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.sfa-eco-svg path {
+  fill: none; stroke: var(--sfa-pink); stroke-width: 2; opacity: .45;
+  stroke-dasharray: 6 6;
+  stroke-dashoffset: 200;
+  animation: sfa-dash 3s linear infinite;
+}
+
+
+
+/* ---------- Logo ---------- */
+.sfa-logo-img {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* ---------- Navbar (reproduction exacte du header fourni) ---------- */
+.sfa-navbar { padding-top: .55rem; padding-bottom: .55rem; }
+.sfa-navbar .nav-link {
+  font-size: .92rem;
+  padding-left: .85rem !important;
+  padding-right: .85rem !important;
+}
+.sfa-navbar .dropdown-menu {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(30,23,48,.12);
+  padding: .5rem;
+}
+.sfa-navbar .dropdown-item {
+  border-radius: 8px;
+  font-size: .88rem;
+  padding: .5rem .75rem;
+}
+.sfa-navbar .dropdown-item:hover { background: var(--sfa-pink-light); color: var(--sfa-pink-dark); }
+.sfa-navbar .btn-sfa-primary { padding: .5rem 1.4rem; font-size: .88rem; }
+
+/* ---------- Hero : animation 3D fluide pour la photo des élèves ---------- */
+@keyframes sfa-hero-float-3d {
+  0%   { transform: perspective(900px) rotateY(-4deg) rotateX(2deg) translateY(0); }
+  50%  { transform: perspective(900px) rotateY(3deg) rotateX(-2deg) translateY(-14px); }
+  100% { transform: perspective(900px) rotateY(-4deg) rotateX(2deg) translateY(0); }
+}
+.sfa-hero-3d-wrap { perspective: 1000px; }
+.sfa-hero-3d-img {
+  animation: sfa-hero-float-3d 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(236,72,153,.25);
+  transition: transform .3s ease;
+}
+.sfa-hero-icon-float {
+  position: absolute;
+  color: var(--sfa-pink);
+  opacity: .5;
+  animation: sfa-float 6s ease-in-out infinite;
+}
+.sfa-hero-dots {
+  position: absolute;
+  width: 130px; height: 90px;
+  background-image: radial-gradient(var(--sfa-pink) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+  opacity: .35;
+}
+
+/* ---------- Méthode SCHFL : ligne de temps multicolore avec rotation/translation ---------- */
+.sfa-methode-timeline { position: relative; }
+.sfa-methode-timeline::before {
+  content: '';
+  position: absolute;
+  top: 32px; left: 6%; right: 6%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--sfa-pink-light) 0 8px, transparent 8px 16px);
+  z-index: 0;
+}
+.sfa-methode-step { position: relative; z-index: 1; }
+@keyframes sfa-circle-in {
+  from { opacity: 0; transform: translateY(20px) rotate(-25deg) scale(.7); }
+  to   { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+}
+.sfa-methode-circle {
+  width: 64px; height: 64px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  animation: sfa-circle-in .6s ease both;
+  transition: transform .3s ease;
+}
+.sfa-methode-step:hover .sfa-methode-circle { transform: rotate(12deg) scale(1.08); }
+.sfa-methode-circle.mc-1 { background: var(--sfa-pink); }
+.sfa-methode-circle.mc-2 { background: #3B82F6; }
+.sfa-methode-circle.mc-3 { background: var(--sfa-pink); box-shadow: 0 0 0 6px var(--sfa-pink-light), 0 8px 18px rgba(0,0,0,.12); }
+.sfa-methode-circle.mc-4 { background: #3B82F6; }
+.sfa-methode-circle.mc-5 { background: #F59E0B; }
+.sfa-methode-circle.mc-6 { background: #14B8A6; }
+.sfa-methode-circle.mc-7 { background: #A855F7; }
+
+/* ---------- Why / Niveaux : cadres translucides et flous (glassmorphism) ---------- */
+.sfa-glass-card {
+  background: rgba(252, 231, 243, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 18px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.sfa-glass-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px rgba(236,72,153,.18); }
+.sfa-glass-card .sfa-card-icon { background: #fff; color: var(--sfa-pink); box-shadow: 0 6px 16px rgba(236,72,153,.25); }
+
+.sfa-niveau-pill {
+  border: 1.5px solid #e5c7d6;
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(6px);
+  border-radius: 50px;
+  padding: .6rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: .85rem;
+  transition: all .2s ease;
+}
+.sfa-niveau-pill.active {
+  background: var(--sfa-pink);
+  border-color: var(--sfa-pink);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(236,72,153,.35);
+}
+
+/* ---------- Résultats / Témoignages / Événements ---------- */
+.sfa-resultat-tile {
+  border-radius: 16px;
+  padding: 1.1rem;
+  background: #fff;
+  border: 1px solid var(--sfa-pink-light);
+  text-align: center;
+  transition: transform .25s ease;
+}
+.sfa-resultat-tile:hover { transform: translateY(-4px); }
+.sfa-resultat-tile .valeur { font-size: 1.9rem; font-weight: 800; }
+.sfa-resultat-tile.c-pink .valeur { color: var(--sfa-pink); }
+.sfa-resultat-tile.c-blue .valeur { color: #3B82F6; }
+.sfa-resultat-tile.c-yellow .valeur { color: #F59E0B; }
+.sfa-resultat-tile.c-teal .valeur { color: #14B8A6; }
+
+.sfa-testimonial-card {
+  background: linear-gradient(160deg, #fff 0%, var(--sfa-pink-light) 130%);
+  border-radius: 18px;
+  padding: 1.75rem;
+  position: relative;
+}
+.sfa-testimonial-nav {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--sfa-pink-light);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sfa-pink); transition: all .2s ease;
+}
+.sfa-testimonial-nav:hover { background: var(--sfa-pink); color: #fff; }
+.sfa-testimonial-dots span {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--sfa-pink-light); margin: 0 3px;
+}
+.sfa-testimonial-dots span.active { background: var(--sfa-pink); width: 20px; border-radius: 4px; }
+
+.sfa-event-row {
+  display: flex; align-items: center; gap: .85rem;
+  padding: .6rem 0; border-bottom: 1px dashed var(--sfa-pink-light);
+}
+.sfa-event-thumb {
+  width: 56px; height: 56px; border-radius: 14px; overflow: hidden; flex-shrink: 0;
+  background: var(--sfa-pink-light); display: flex; align-items: center; justify-content: center;
+}
+.sfa-event-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.sfa-btn-savoir-plus {
+  border: 1.5px solid var(--sfa-pink);
+  color: var(--sfa-pink);
+  font-size: .72rem; font-weight: 700;
+  border-radius: 50px; padding: .3rem .8rem;
+  white-space: nowrap;
+}
+.sfa-btn-savoir-plus:hover { background: var(--sfa-pink); color: #fff; }
+
+/* ---------- Footer (couleurs exactes : fond très sombre + barre rose) ---------- */
+.sfa-footer {
+  background: #14121B;
+  padding-top: 3.5rem;
+  padding-bottom: 0;
+}
+.sfa-footer-logo {
+  width: 60px; height: 60px; border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--sfa-pink);
+}
+.sfa-social-circle {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff !important; font-size: .95rem;
+  transition: transform .2s ease;
+}
+.sfa-social-circle:hover { transform: translateY(-3px); }
+.sfa-social-facebook { background: #1877F2; }
+.sfa-social-whatsapp { background: #25D366; }
+.sfa-social-instagram { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.sfa-social-youtube { background: #FF0000; }
+.sfa-footer-bottom {
+  background: var(--sfa-pink);
+  color: #fff;
+  text-align: center;
+  padding: .85rem 0;
+  margin-top: 2.5rem;
+  font-size: .85rem;
+}
+
+/* ===========================================================
+   FICHE D'INSCRIPTION IMPRIMABLE
+   =========================================================== */
+.fiche-officielle {
+  position: relative;
+  background: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  color: #111;
+  padding: 24px 30px;
+  overflow: hidden;
+}
+.fiche-officielle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/logo.jpg');
+  background-repeat: repeat;
+  background-size: 220px;
+  opacity: .06;
+  z-index: 0;
+  pointer-events: none;
+}
+.fiche-officielle > * { position: relative; z-index: 1; }
+.fiche-entete {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+  text-align: center; font-size: 11px; font-weight: 700; line-height: 1.35;
+}
+.fiche-entete .fiche-logo { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+.fiche-entete .devise { font-size: 9.5px; font-weight: 400; font-style: italic; }
+.fiche-titre { text-align: center; margin-top: 6px; }
+.fiche-titre h2 { font-weight: 800; letter-spacing: 1px; margin-bottom: 2px; font-size: 20px; }
+.fiche-titre p { font-size: 11px; font-style: italic; margin-bottom: 0; }
+.fiche-photo-box {
+  width: 90px; height: 100px; border: 1.5px solid #111;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: #555; float: left; margin: 6px 14px 6px 0;
+  overflow: hidden;
+}
+.fiche-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+.fiche-champ { font-size: 13px; margin-bottom: 9px; }
+.fiche-champ strong { text-decoration: underline; }
+.fiche-champ .valeur { border-bottom: 1px dotted #444; padding: 0 4px; }
+.fiche-case { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; margin-right: 14px; }
+.fiche-case .box { width: 12px; height: 12px; border: 1.3px solid #111; display: inline-block; text-align:center; line-height:11px; font-size:10px; }
+.fiche-reglement {
+  border: 1px solid #111; margin-top: 14px; padding: 8px 12px; font-size: 9.3px; column-count: 2; column-gap: 22px;
+}
+.fiche-reglement h6 { column-span: all; text-align: center; font-weight: 800; font-size: 12px; margin-bottom: 6px; letter-spacing: .5px; }
+.fiche-reglement ol { padding-left: 14px; margin-bottom: 0; }
+.fiche-reglement li { margin-bottom: 3px; }
+.fiche-signature { font-size: 10.5px; font-style: italic; text-align: right; margin-top: 8px; }
+
+@media print {
+  .fiche-officielle { box-shadow: none; }
+}
+
+/* ---------- Impression de la fiche d'inscription ---------- */
+@media print {
+  body * { visibility: hidden; }
+  #ficheImpression, #ficheImpression * { visibility: visible; }
+  #ficheImpression {
+    position: absolute; top: 0; left: 0; width: 100%; padding: 0;
+  }
+  .no-print { display: none !important; }
+}

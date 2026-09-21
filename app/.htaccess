@@ -1,0 +1,3 @@
+# Empêche l'accès direct depuis le navigateur aux dossiers sensibles
+Order Deny,Allow
+Deny from all
