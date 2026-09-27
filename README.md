@@ -60,8 +60,8 @@ schoolforall/
 
 | Champ         | Valeur                     |
 |---------------|-----------------------------|
-| E-mail        | admin@schoolforall.cm       |
-| Mot de passe  | SchoolForAll2026             |
+| E-mail        | nothing     |
+| Mot de passe  | nothing           |
 
 **⚠️ Important : changez ce mot de passe dès la première connexion** (créez un nouveau compte
 administrateur via une requête SQL utilisant `password_hash()`, ou ajoutez une page de gestion
